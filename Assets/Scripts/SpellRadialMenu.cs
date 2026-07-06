@@ -239,28 +239,35 @@ public class SpellRadialMenu : MonoBehaviour
 
     // ---------- Equip / place ----------
 
-    private void Equip(SpellOption option)
+   private void Equip(SpellOption option)
+{
+    if (option._prefab == null) return;
+
+    ClearEquipped();
+
+    _equippedOption = option;
+    _equippedGhost = Instantiate(option._prefab);
+    _equippedGhost.name = option._spellName + "_Ghost";
+
+    // Disable colliders on ghost so it doesn't interact with the world yet
+    foreach (var col in _equippedGhost.GetComponentsInChildren<Collider2D>())
     {
-        if (option._prefab == null) return;
-
-        ClearEquipped();
-
-        _equippedOption = option;
-        _equippedGhost = Instantiate(option._prefab);
-        _equippedGhost.name = option._spellName + "_Ghost";
-
-        // Disable colliders on ghost so it doesn't interact with the world yet
-        foreach (var col in _equippedGhost.GetComponentsInChildren<Collider2D>())
-        {
-            col.enabled = false;
-        }
-
-        // Tint sprite renderers translucent to show it's a preview
-        foreach (var sr in _equippedGhost.GetComponentsInChildren<SpriteRenderer>())
-        {
-            sr.color = _ghostColor;
-        }
+        col.enabled = false;
     }
+
+    // Disable ALL gameplay scripts on the ghost so effects (like SwordSlashEffect)
+    // don't run/self-destruct during preview — only the real placed instance should run them
+    foreach (var behaviour in _equippedGhost.GetComponentsInChildren<MonoBehaviour>())
+    {
+        behaviour.enabled = false;
+    }
+
+    // Tint sprite renderers translucent to show it's a preview
+    foreach (var sr in _equippedGhost.GetComponentsInChildren<SpriteRenderer>())
+    {
+        sr.color = _ghostColor;
+    }
+}
 
     private void PlaceEquippedItem(Vector3 worldPos)
     {

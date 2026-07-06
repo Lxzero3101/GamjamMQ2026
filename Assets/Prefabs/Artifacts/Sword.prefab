@@ -105,4 +105,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwordSlashEffect
   _slashAngle: 90
-  _slashDuration: 0.15
+  _slashDuration: 0.5
