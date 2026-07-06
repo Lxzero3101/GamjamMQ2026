@@ -18,7 +18,6 @@ public class SpellRadialMenu : MonoBehaviour
 
     [Header("Activation")]
     [SerializeField] private Key _activationKey = Key.F;
-    [SerializeField] private Key _cancelEquippedKey = Key.Escape;
 
     [Header("Radial Layout")]
     [SerializeField] private float _radius = 150f;
@@ -99,11 +98,6 @@ public class SpellRadialMenu : MonoBehaviour
             CloseMenu(confirmSelection: true);
         }
 
-        // Cancel currently equipped item
-        if (_equippedOption != null && keyboard[_cancelEquippedKey].wasPressedThisFrame)
-        {
-            ClearEquipped();
-        }
 
         // Follow mouse with equipped ghost + place on click
         if (_equippedGhost != null && !_menuOpen)
