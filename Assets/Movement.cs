@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class GridMovement : MonoBehaviour {
     // Hold key for movement
@@ -13,21 +15,24 @@ public class GridMovement : MonoBehaviour {
     private void Update() {
         // Allow movement to be one move per time
         if (!isMoving) {
-            System.Func<KeyCode, bool> inputMovement;
+            Keyboard keyboard = Keyboard.current;
+            if (keyboard == null) return;
+
+            System.Func<KeyControl, bool> inputMovement;
             if (repeatMove) {
-                inputMovement = Input.GetKey;
+                inputMovement = key => key.isPressed;
             } else {
-                inputMovement = Input.GetKeyDown;
+                inputMovement = key => key.wasPressedThisFrame;
             }
 
             // Move in the direction of the arrow key pressed
-            if (inputMovement(KeyCode.UpArrow)) {
+            if (inputMovement(keyboard.UpArrowKey)) {
                 StartCoroutine(Move(Vector2.up));
-            } else if (inputMovement(KeyCode.DownArrow)) {
+            } else if (inputMovement(keyboard.DownArrowKey)) {
                 StartCoroutine(Move(Vector2.down));
-            } else if (inputMovement(KeyCode.LeftArrow)) {
+            } else if (inputMovement(keyboard.LeftArrowKey)) {
                 StartCoroutine(Move(Vector2.left));
-            } else if (inputMovement(KeyCode.RightArrow)) {
+            } else if (inputMovement(keyboard.RightArrowKey)) {
                 StartCoroutine(Move(Vector2.right));
             }
         }
