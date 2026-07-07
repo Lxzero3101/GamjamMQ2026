@@ -276,8 +276,7 @@ MonoBehaviour:
   _spellSequence:
   - {fileID: 11400000, guid: 22e7b3c9db42d9c48b13e41c411ef663, type: 2}
   - {fileID: 11400000, guid: fdc9b77280c562c45983d4dafa6372ee, type: 2}
-  - {fileID: 11400000, guid: d27329a8328e2ad49af82f87506cb645, type: 2}
-  _successThreshold: 80
+  _successThreshold: 78
   _resampleCount: 64
   _successClearDelay: 1.5
   _failureClearDelay: 1
