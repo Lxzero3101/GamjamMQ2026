@@ -1,62 +1,44 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class DialogueTrigger : MonoBehaviour
+public class Dialogue : MonoBehaviour
 {
-    [Header("Dialogue")]
     public TextMeshProUGUI textComponent;
     public string[] lines;
-    public float textSpeed = 0.05f;
-
-    [Header("Settings")]
-    public string playerTag = "Player";
-    public bool triggerOnce = true;
+    public float textSpeed;
 
     private int index;
-    private bool isRunning = false;
-    private bool hasTriggered = false;
-    private Rigidbody2D playerRb;  // 2D — swap to Rigidbody if 3D
 
-    void OnTriggerEnter2D(Collider2D other)  // swap to OnTriggerEnter(Collider other) if 3D
+    // Start is called before the first frame update
+    void Start()
     {
-        if (!other.CompareTag(playerTag)) return;
-        if (triggerOnce && hasTriggered) return;
-        if (isRunning) return;
-
-        hasTriggered = true;
-
-        // Freeze player using Rigidbody2D — no custom script needed
-        playerRb = other.GetComponent<Rigidbody2D>();
-        if (playerRb != null)
-            playerRb.bodyType = RigidbodyType2D.Static;
-
+        textComponent.text = string.Empty;
         StartDialogue();
     }
 
-    void StartDialogue()
-    {
-        isRunning = true;
-        index = 0;
-        textComponent.text = string.Empty;
-        textComponent.gameObject.SetActive(true);
-        StartCoroutine(TypeLine());
-    }
-
+    // Update is called once per frame
     void Update()
     {
-        if (!isRunning) return;
-
         if (Input.GetMouseButtonDown(0))
         {
             if (textComponent.text == lines[index])
+            {
                 NextLine();
+            }
             else
             {
                 StopAllCoroutines();
                 textComponent.text = lines[index];
             }
         }
+    }
+
+    void StartDialogue()
+    {
+        index = 0;
+        StartCoroutine(TypeLine());
     }
 
     IEnumerator TypeLine()
@@ -78,20 +60,7 @@ public class DialogueTrigger : MonoBehaviour
         }
         else
         {
-            EndDialogue();
+            gameObject.SetActive(false);
         }
     }
-
-    void EndDialogue()
-    {
-        isRunning = false;
-        textComponent.text = string.Empty;
-        textComponent.gameObject.SetActive(false);
-
-        // Unfreeze player
-        if (playerRb != null)
-            playerRb.bodyType = RigidbodyType2D.Dynamic;
-    }
-
-    public void ResetTrigger() => hasTriggered = false;
 }
