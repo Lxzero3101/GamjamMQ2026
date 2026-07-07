@@ -5,6 +5,7 @@ using TMPro;
 public class DialogueTrigger : MonoBehaviour
 {
     [Header("Dialogue")]
+    public GameObject dialogueBox;          // <-- assign the PANEL (box) here
     public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textSpeed = 0.05f;
@@ -16,9 +17,15 @@ public class DialogueTrigger : MonoBehaviour
     private int index;
     private bool isRunning = false;
     private bool hasTriggered = false;
-    private Rigidbody2D playerRb;  // 2D — swap to Rigidbody if 3D
+    private Rigidbody2D playerRb;
 
-    void OnTriggerEnter2D(Collider2D other)  // swap to OnTriggerEnter(Collider other) if 3D
+    void Start()
+    {
+        if (dialogueBox != null)
+            dialogueBox.SetActive(false);   // hidden at game start
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag(playerTag)) return;
         if (triggerOnce && hasTriggered) return;
@@ -26,7 +33,6 @@ public class DialogueTrigger : MonoBehaviour
 
         hasTriggered = true;
 
-        // Freeze player using Rigidbody2D — no custom script needed
         playerRb = other.GetComponent<Rigidbody2D>();
         if (playerRb != null)
             playerRb.bodyType = RigidbodyType2D.Static;
@@ -38,8 +44,8 @@ public class DialogueTrigger : MonoBehaviour
     {
         isRunning = true;
         index = 0;
+        if (dialogueBox != null) dialogueBox.SetActive(true);  // show box
         textComponent.text = string.Empty;
-        textComponent.gameObject.SetActive(true);
         StartCoroutine(TypeLine());
     }
 
@@ -83,15 +89,23 @@ public class DialogueTrigger : MonoBehaviour
     }
 
     void EndDialogue()
-    {
-        isRunning = false;
-        textComponent.text = string.Empty;
-        textComponent.gameObject.SetActive(false);
+{
+    isRunning = false;
+    textComponent.text = string.Empty;
 
-        // Unfreeze player
-        if (playerRb != null)
-            playerRb.bodyType = RigidbodyType2D.Dynamic;
+    if (dialogueBox != null)
+    {
+        dialogueBox.SetActive(false);
+        Debug.Log("Hiding box: " + dialogueBox.name);
+    }
+    else
+    {
+        Debug.LogWarning("dialogueBox is NULL — nothing to hide!");
     }
 
+    if (playerRb != null)
+        playerRb.bodyType = RigidbodyType2D.Dynamic;
+}
+    
     public void ResetTrigger() => hasTriggered = false;
 }
