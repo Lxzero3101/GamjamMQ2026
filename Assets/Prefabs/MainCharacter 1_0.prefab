@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Unit
   unitName: Player
   unitLevel: 0
-  damage: 2
+  damage: 200
   maxHP: 5
   currentHP: 5
 --- !u!114 &1603111998780803706

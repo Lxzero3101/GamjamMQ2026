@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SwordSlashEffect : MonoBehaviour
@@ -30,6 +31,33 @@ public class SwordSlashEffect : MonoBehaviour
         if (_slashDuration <= 0f)
         {
             _slashDuration = 0.01f;
+        }
+        CheckOverlap();
+    }
+        private void CheckOverlap()
+    {
+        Collider2D col = GetComponent<Collider2D>();
+        if (col == null) return;
+
+        // Get all colliders already overlapping this trigger
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
+        filter.useTriggers = false;
+
+        List<Collider2D> results = new List<Collider2D>();
+        Physics2D.OverlapCollider(col, filter, results);
+
+        foreach (var hit in results)
+        {
+            if (!_hasHit && hit.CompareTag(_targetTag))
+            {
+                Unit targetUnit = hit.GetComponent<Unit>();
+                if (targetUnit != null)
+                {
+                    _hasHit = true;
+                    targetUnit.TakeDamage(_damage);
+                }
+            }
         }
     }
 
