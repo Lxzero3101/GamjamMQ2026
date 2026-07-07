@@ -1,58 +1,49 @@
 using System.Collections;
 using UnityEngine;
 
-public class GridMovement : MonoBehaviour {
-    // Hold key for movement
-    [SerializeField] private bool repeatMove = false;
-    // Time to move from one grid to another
-    [SerializeField] private float moveTime = 0.1f;
-    // Size of the grid
-    [SerializeField] private float gridSize = 1f;
-    private bool isMoving = false;
+public class GridMovement : MonoBehaviour
+{
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float tileSize = 1f;
 
-    private void UpdateMove() {
-        // Allow movement to be one move per time
-        if (!isMoving) {
-            System.Func<KeyCode, bool> inputMovement;
-            if (repeatMove) {
-                inputMovement = Input.GetKey;
-            } else {
-                inputMovement = Input.GetKeyDown;
+    private bool isMoving = false;
+    private Vector3 targetPosition;
+
+    void Update()
+    {
+        // Only accept new input
+        if (!isMoving)
+        {
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
+
+            // Prevent extra movement
+            if (horizontal != 0)
+            {
+                vertical = 0;
             }
 
-            // Move in the direction of the arrow key pressed
-            if (inputMovement(KeyCode.UpArrow)) {
-                StartCoroutine(Move(Vector2.up));
-            } else if (inputMovement(KeyCode.DownArrow)) {
-                StartCoroutine(Move(Vector2.down));
-            } else if (inputMovement(KeyCode.LeftArrow)) {
-                StartCoroutine(Move(Vector2.left));
-            } else if (inputMovement(KeyCode.RightArrow)) {
-                StartCoroutine(Move(Vector2.right));
+            // Calculate the next tile destination if key is pressed
+            if (horizontal != 0 || vertical != 0)
+            {
+                targetPosition = transform.position + new Vector3(horizontal, vertical, 0) * tileSize;
+                StartCoroutine(MoveToGrid(targetPosition));
             }
         }
     }
 
-    // Smooth movement between grids
-    private IEnumerator Move(Vector2 direction) {
+    private IEnumerator MoveToGrid(Vector3 target)
+    {
         isMoving = true;
 
-        // Calculate the current position
-        Vector2 startPosition = transform.position;
-        Vector2 endPosition = startPosition + (direction * gridSize);
-        float elapsedTime = 0;
-        // Move the object over time to the target position
-        while (elapsedTime < moveTime) {
-            elapsedTime += Time.deltaTime;
-            float percent = elapsedTime / moveTime;
-            transform.position = Vector2.Lerp(startPosition, endPosition, percent);
-            yield return null;
+        // Smooth movement
+        while (Vector3.Distance(transform.position, target) > 0.01f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
+            yield return null; // Wait for the next frame
         }
 
-        // Ensure the final position is set to the target position
-        transform.position = endPosition;
-
-        // Allow to move again after one input
+        transform.position = target;
         isMoving = false;
     }
 }
