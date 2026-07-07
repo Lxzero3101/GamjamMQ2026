@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac3823c201b7c164fa077ad132c7f773, type: 3}
+  m_Name: Easy
+  m_EditorClassIdentifier: Assembly-CSharp::SpellData
+  _spellName: Easy
+  _incantationGuideImage: {fileID: 0}
+  _templatePoints:
+  - {x: 0.9864563, y: 4.2163334}
+  - {x: -2.3733668, y: -0.9596114}
+  - {x: 2.5982637, y: 1.7645704}
+  - {x: -0.78426105, y: -3.025449}
