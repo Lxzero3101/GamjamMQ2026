@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.64, y: 1.99, z: 0}
-  m_LocalScale: {x: 0.14759362, y: 0.2104479, z: 0.035309475}
+  m_LocalScale: {x: 0.67963994, y: 0.63338023, z: 0.10627011}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2321278012620895663, guid: 367c8d5be06d5684a8246378d72bfb66, type: 3}
+  m_Sprite: {fileID: -3683766129908549181, guid: 57af0184eb16d3342b9949f6f3cabc25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -107,6 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SwordSlashEffect
   _slashAngle: 90
   _slashDuration: 0.5
+  _targetTag: Enemy
 --- !u!61 &2439724555255678297
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -141,15 +142,15 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.107349396}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.21, y: 19.95}
+    oldSize: {x: 1.53, y: 7.9}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.21, y: 19.95}
+  m_Size: {x: 4.21, y: 8.396378}
   m_EdgeRadius: 0
