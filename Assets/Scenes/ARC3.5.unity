@@ -278,6 +278,242 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &103736807
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 103736808}
+  - component: {fileID: 103736810}
+  - component: {fileID: 103736809}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &103736808
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103736807}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 411166934}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1600, y: 300}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &103736809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103736807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: New Text
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: e6eb74fcdb3646c4d9fc133dcf0c4542, type: 2}
+  m_sharedMaterial: {fileID: 2105937689440103769, guid: e6eb74fcdb3646c4d9fc133dcf0c4542, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 50
+  m_fontSizeBase: 50
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &103736810
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103736807}
+  m_CullTransparentMesh: 1
+--- !u!1 &411166933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 411166934}
+  - component: {fileID: 411166937}
+  - component: {fileID: 411166936}
+  - component: {fileID: 411166935}
+  m_Layer: 5
+  m_Name: DialogueBox2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &411166934
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411166933}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 103736808}
+  m_Father: {fileID: 2096750129}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -250}
+  m_SizeDelta: {x: -200, y: -700}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &411166935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411166933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea1c59ace054e0f4cb9e17e1e77a9b89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue
+  textComponent: {fileID: 103736809}
+  lines:
+  - The sunlight left the arena floor.
+  - But the Warrior himself, went still.
+  - "Not like a statue \u2014 like a person who has finished what they came to do
+    and let themselves rest. There was a difference, and Nesia felt it."
+  - "Not like a statue \u2014 like a person who has finished what they came to do
+    and let themselves rest. There was a difference, and Nesia can feel it. "
+  - Holding a bittersweet feeling, she walked into the corridor beyond.
+  textSpeed: 0.05
+--- !u!114 &411166936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411166933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.9607844, g: 1, b: 0.9803922, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &411166937
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411166933}
+  m_CullTransparentMesh: 1
 --- !u!1 &604093100
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +748,7 @@ GameObject:
   - component: {fileID: 675544833}
   - component: {fileID: 675544832}
   m_Layer: 5
-  m_Name: DialogueBox
+  m_Name: DialogueBox1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -552,26 +788,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   textComponent: {fileID: 1830359573}
   lines:
-  - '[ The Arena ]'
-  - "The corridor delivered her into open sky. The arena was enormous \u2014 a great
-    circular space ringed by tiered stone seating, open to the heavens, its floor
-    worn smooth by centuries of feet. "
-  - "The sunlight suddenly move. Nesia had not noticed the angle of the light until
-    that moment. The arena was built specifically for this hour \u2014 its open roof
-    facing east, a long beam of sunlight crossing the floor slowly, steadily, until
-    it reached the stone warrior at the arena's centre. "
-  - The statue cracked open like something that had been waiting inside the stone
-    for exactly this light. The warrior rolled its neck. Flexed fingers that had
-    been rigid for centuries. And turned to look at Nesia with eyes that were no
-    longer carved.
-  - They were alive.
-  - '"You carry the sword. Then the guardian found you worthy."'
-  - He studied her for a long moment, then something in his expression softened.
-    He stepped down from the dais and stood before her.
-  - What followed was not a battle. It was a lesson.
-  - '"You hold the power of creation. You might have experienced that power before,
-    like making things disappear. But that''s not the only thing that you possess,
-    it can go beyond that. And now I will show you your true potential."'
+  - He showed her how to create a spell charm.
+  - "He taught her two spells before the lesson was complete. She practised each
+    until the pen responded without hesitation \u2014 not because she had memorised
+    the strokes, but because she had understood what each one was for."
+  - "The sun moved on. She watched it happen in real time \u2014 the beam of light
+    that had given the Warrior his life slowly tracking across the arena floor. "
+  - 'The Warrior felt it too. She could see it: the way his movements grew slightly
+    slower, the way his voice, when he spoke the last instruction, carried a note
+    she recognised as finality.'
+  - '"My time is the sun''s time. When the light leaves the arena, I return to what
+    I was. It is enough. I have said what I was placed here to say."'
+  - 'He reached into his own breastplate and produced a coin. Old. Worn. The face
+    on it had been rubbed smooth by centuries of touch, but the crest on the reverse
+    was still sharp: the emblem of an empire, authoritative and permanent.'
+  - "\"It's the Ancient Coin \u2014 minted by an empire that no longer exists. It
+    opens one door only: the entrance to the final temple. It cannot be copied, forged,
+    or stolen.\""
+  - The final temple lies ahead. A maze. A last guardian unlike any you have faced.
+    Insert this at the entrance. Trust what you know."
+  - '"Remember: the pen only answers to someone who has never stopped believing that
+    learning is worth everything."'
+  - He finished the line as he walked back to his dais.
   textSpeed: 0.05
 --- !u!114 &675544833
 MonoBehaviour:
@@ -695,13 +933,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1029569743}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.106638096, z: -0, w: 0.994298}
-  m_LocalPosition: {x: -3.59, y: 1.11, z: 2.54}
+  m_LocalRotation: {x: -0, y: -0.999964, z: -0, w: 0.0084864665}
+  m_LocalPosition: {x: -13.88, y: 1.06, z: 4.77}
   m_LocalScale: {x: 0.7344994, y: 0.7344994, z: 0.7344994}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 12.243, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -179.028, z: 0}
 --- !u!1 &1697469315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,6 +1480,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 675544831}
+  - {fileID: 411166934}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
