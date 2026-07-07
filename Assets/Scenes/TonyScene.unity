@@ -1628,7 +1628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897ed50ad1a0da8459d3362c2f37151f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneTransitionTile
-  nextSceneName: 
+  nextSceneName: ARC5
   playerTag: Player
 --- !u!61 &897065255
 BoxCollider2D:
