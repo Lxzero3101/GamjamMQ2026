@@ -16,21 +16,26 @@ public class AudioManager : MonoBehaviour
     private MusicArc? currentArc = null;
 
     private void Awake()
+{
+    Debug.Log($"[AudioManager] Awake called on {gameObject.name}, InstanceID: {GetInstanceID()}");
+
+    if (Instance != null && Instance != this)
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-
-        if (musicSource == null)
-            musicSource = GetComponent<AudioSource>();
-
-        musicSource.loop = true;
+        Debug.Log("[AudioManager] Duplicate found, destroying this one.");
+        Destroy(gameObject);
+        return;
     }
+
+    Instance = this;
+    DontDestroyOnLoad(gameObject);
+    Debug.Log("[AudioManager] DontDestroyOnLoad called, this should persist.");
+    // ...rest of your code
+}
+
+private void OnDestroy()
+{
+    Debug.Log($"[AudioManager] OnDestroy called on {gameObject.name}, InstanceID: {GetInstanceID()}");
+}
 
     public void PlayArcMusic(MusicArc arc)
     {
@@ -52,4 +57,5 @@ public class AudioManager : MonoBehaviour
         musicSource.clip = clip;
         musicSource.Play();
     }
+    
 }
