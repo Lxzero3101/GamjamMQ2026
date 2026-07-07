@@ -1,9 +1,14 @@
 using UnityEngine;
 
-public class GridMovement : MonoBehaviour
+public class GridMovement2D : MonoBehaviour
 {
-    public float gridSize = 1f; // Size of your grid in Unity units
-    public float moveSpeed = 5f; // Speed of the transition
+    [Header("Movement Settings")]
+    public float gridSize = 1f;       // Distance of one tile (usually 1f for Unity's Grid system)
+    public float moveSpeed = 5f;      // How fast the character slides to the next tile
+    
+    [Header("Collision Settings")]
+    public LayerMask obstacleLayer;   // Set this to your "Obstacles" or "Walls" layer in the Inspector
+    public Transform obstacleCheckPoint; // A child GameObject or empty transform used to check ahead
 
     private Vector3 targetPosition;
     private bool isMoving = false;
@@ -11,17 +16,22 @@ public class GridMovement : MonoBehaviour
     void Start()
     {
         targetPosition = transform.position;
+        
+        // If no separate checkpoint is assigned, use the player's own position
+        if (obstacleCheckPoint == null)
+        {
+            obstacleCheckPoint = this.transform;
+        }
     }
 
-    void UpdateMove()
+    void Update()
     {
-        // If the character is already moving, smoothly interpolate to the target position
+        // 1. Handle the sliding movement if already in motion
         if (isMoving)
         {
-            transform.position = Vector3.Lerp(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
-            // Stop moving once we get close enough to the target
-            if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
+            if (Vector3.Distance(transform.position, targetPosition) < 0.001f)
             {
                 transform.position = targetPosition;
                 isMoving = false;
@@ -29,7 +39,7 @@ public class GridMovement : MonoBehaviour
             return;
         }
 
-        // GetDown ensures only one grid space is traversed per key press
+        // 2. Read arrow key inputs (one press per movement)
         float inputX = 0f;
         float inputY = 0f;
 
@@ -38,12 +48,25 @@ public class GridMovement : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.LeftArrow)) inputX = -1f;
         else if (Input.GetKeyDown(KeyCode.RightArrow)) inputX = 1f;
 
-        // If an arrow key was pressed, calculate the new target position
+        // 3. Calculate next tile position and check for collisions
         if (inputX != 0f || inputY != 0f)
         {
-            Vector3 movement = new Vector3(inputX * gridSize, inputY * gridSize, 0f);
-            targetPosition = transform.position + movement;
-            isMoving = true;
+            Vector3 direction = new Vector3(inputX * gridSize, inputY * gridSize, 0f);
+            Vector3 potentialTarget = transform.position + direction;
+
+            if (CanMove(potentialTarget))
+            {
+                targetPosition = potentialTarget;
+                isMoving = true;
+            }
         }
+    }
+
+    // Helper method to check if the next tile is blocked
+    bool CanMove(Vector3 targetPos)
+    {
+        // Checks a tiny circle (0.2 units radius) at the destination tile
+        // Returns true if NO colliders on the obstacleLayer are found
+        return !Physics2D.OverlapCircle(targetPos, 0.2f, obstacleLayer);
     }
 }
