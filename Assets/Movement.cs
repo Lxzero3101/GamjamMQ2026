@@ -4,7 +4,7 @@ using UnityEngine.Tilemaps;
 public class GridMovement : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Tilemap obstacleTilemap;
+    [SerializeField] private Tilemap Wall;
     [SerializeField] private Grid grid;               
 
     private Vector3Int currentGridPosition;
@@ -40,7 +40,7 @@ public class GridMovement : MonoBehaviour
         Vector3Int targetGridPosition = currentGridPosition + direction;
 
         // Check if there is a wall tile at the target position
-        if (obstacleTilemap.HasTile(targetGridPosition))
+        if (Wall.HasTile(targetGridPosition))
         {
             return; // Blocking the movement
         }
