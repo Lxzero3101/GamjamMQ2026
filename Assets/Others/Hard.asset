@@ -14,14 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpellData
   _spellName: Hard
   _incantationGuideImage: {fileID: 0}
-  _templatePoints:
-  - {x: -7.82173, y: 0.15276277}
-  - {x: -4.257593, y: 0.2208673}
-  - {x: -4.1440854, y: 3.399079}
-  - {x: -2.4868746, y: 3.3763778}
-  - {x: -2.2825615, y: -2.8892403}
-  - {x: -0.1486187, y: -2.8665392}
-  - {x: -0.12591785, y: 1.5375551}
-  - {x: 1.0772623, y: 1.5375551}
-  - {x: 1.1680683, y: 0.26627034}
-  - {x: 7.0931644, y: 0.3570764}
+  _templatePoints: []

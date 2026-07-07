@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Easy
   m_EditorClassIdentifier: Assembly-CSharp::SpellData
   _spellName: Easy
-  _incantationGuideImage: {fileID: 0}
+  _incantationGuideImage: {fileID: -894095381526335850, guid: c69ec241fd9397643bb435fbf801f4eb, type: 3}
   _templatePoints:
-  - {x: 0.9864563, y: 4.2163334}
-  - {x: -2.3733668, y: -0.9596114}
-  - {x: 2.5982637, y: 1.7645704}
-  - {x: -0.78426105, y: -3.025449}
+  - {x: -0.50477386, y: 3.7712007}
+  - {x: -2.525932, y: 0.5084737}
+  - {x: 2.7868283, y: 1.2014422}
+  - {x: -1.1977425, y: -3.562717}
