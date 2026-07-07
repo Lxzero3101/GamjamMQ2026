@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1c59ace054e0f4cb9e17e1e77a9b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
+  dialogueBox: {fileID: 0}
   textComponent: {fileID: 995992542}
   lines:
   - The guardian stopped. What Nesia saw in its amber eyes, in the moment before
@@ -1545,6 +1546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1c59ace054e0f4cb9e17e1e77a9b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  dialogueBox: {fileID: 474933406}
   textComponent: {fileID: 995992542}
   lines:
   - The guardian stopped. What Nesia saw in its amber eyes, in the moment before
