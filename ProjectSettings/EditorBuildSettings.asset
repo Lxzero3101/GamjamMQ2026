@@ -9,20 +9,44 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenuScene.unity
     guid: 9273dfdce637d504999b45effc1ada7f
   - enabled: 1
-    path: Assets/Scenes/LongScene.unity
-    guid: f1722b8ffd42f2945a44df09bd7ab083
+    path: Assets/Scenes/ARC1.unity
+    guid: 9fec8f015983af74cbdd939a2598ef84
   - enabled: 1
-    path: Assets/Scenes/TonyScene.unity
-    guid: e58d6da4ced74fd4ba4a5deff51ba1fe
-  - enabled: 1
-    path: Assets/Scenes/level1.unity
-    guid: 67fe5ad056b26334683d608707451d26
+    path: Assets/Scenes/ARC2.unity
+    guid: 6e48b1687c327d342ae0f1b099b41d4b
   - enabled: 1
     path: Assets/Scenes/Puzzle1.unity
     guid: 9b87486c3bdd13840a3b893ee66835cb
   - enabled: 1
+    path: Assets/Scenes/ARC2.5.unity
+    guid: 00ec883e34d1a83419fe60d19f6fe80b
+  - enabled: 1
+    path: Assets/Scenes/ARC3.unity
+    guid: 183ea9ac39d7c60419c396bb01e97d7e
+  - enabled: 1
     path: Assets/Scenes/SpellDrawingMiniGame.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/ARC3.5.unity
+    guid: 59401229cd455f2439a6894b989e3949
+  - enabled: 1
+    path: Assets/Scenes/ARC4.unity
+    guid: 9fa995a9078f40c4aaf6c486d88e9ab0
+  - enabled: 1
+    path: Assets/Scenes/Combat.unity
+    guid: 275ad86bec407a5439a8f0a02cebf277
+  - enabled: 1
+    path: Assets/Scenes/ARC4.5.unity
+    guid: 0a9901fecae5b8c498bdbe35c2923d59
+  - enabled: 1
+    path: Assets/Scenes/TonyScene.unity
+    guid: e58d6da4ced74fd4ba4a5deff51ba1fe
+  - enabled: 1
+    path: Assets/Scenes/ARC5.unity
+    guid: 966628cd5cb7cec46b094ec3fcc37fe7
+  - enabled: 1
+    path: Assets/Scenes/FinalScene.unity
+    guid: dfac571364cfe314a993dfc8efec5c4f
   - enabled: 1
     path: Assets/Scenes/CreditScene.unity
     guid: 096b08b4b20ce9c4ca2fde5b0b45a743
