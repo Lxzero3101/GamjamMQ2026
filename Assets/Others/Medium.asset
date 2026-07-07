@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Medium
   m_EditorClassIdentifier: Assembly-CSharp::SpellData
   _spellName: Medium
-  _incantationGuideImage: {fileID: 0}
+  _incantationGuideImage: {fileID: 6948327744988102790, guid: db5fb48ffe739164fbf455906caafb39, type: 3}
   _templatePoints:
-  - {x: -2.1650481, y: 3.3015969}
-  - {x: 2.9531128, y: 3.3446064}
-  - {x: 0.8456341, y: 0.097370684}
-  - {x: 2.9746163, y: -2.5907385}
-  - {x: -1.6919409, y: -2.4617093}
-  - {x: 0.8456341, y: 0.097370684}
-  - {x: -2.1650481, y: 3.3446064}
+  - {x: -2.641427, y: 2.9338639}
+  - {x: 3.4220486, y: 2.8761165}
+  - {x: 0.47693175, y: 0.075367406}
+  - {x: 3.9129012, y: -3.3028538}
+  - {x: -2.843543, y: -3.2162325}
+  - {x: 0.44805807, y: 0.075367406}
+  - {x: -2.6703007, y: 2.9338639}
