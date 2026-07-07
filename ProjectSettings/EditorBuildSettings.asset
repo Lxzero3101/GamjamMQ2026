@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/CreditScene.unity
     guid: 096b08b4b20ce9c4ca2fde5b0b45a743
   - enabled: 1
+    path: Assets/Scenes/Puzzle1.unity
+    guid: 9b87486c3bdd13840a3b893ee66835cb
+  - enabled: 1
     path: Assets/Scenes/SpellDrawingMiniGame.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects:
