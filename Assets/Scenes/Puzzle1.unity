@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 22807280}
   - component: {fileID: 22807279}
   - component: {fileID: 22807278}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1240,7 +1240,7 @@ GameObject:
   - component: {fileID: 744693316}
   - component: {fileID: 744693315}
   - component: {fileID: 744693314}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Removable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
