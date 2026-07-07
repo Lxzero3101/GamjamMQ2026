@@ -1,72 +1,53 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
-public class GridMovement2D : MonoBehaviour
+public class GridMovement : MonoBehaviour
 {
-    [Header("Movement Settings")]
-    public float gridSize = 1f;       // Distance of one tile (usually 1f for Unity's Grid system)
-    public float moveSpeed = 5f;      // How fast the character slides to the next tile
-    
-    [Header("Collision Settings")]
-    public LayerMask obstacleLayer;   // Set this to your "Obstacles" or "Walls" layer in the Inspector
-    public Transform obstacleCheckPoint; // A child GameObject or empty transform used to check ahead
+    [Header("References")]
+    [SerializeField] private Tilemap[] obstacleTilemaps; // Changed to an Array for multiple tilemaps
+    [SerializeField] private Grid grid;                 
 
-    private Vector3 targetPosition;
-    private bool isMoving = false;
+    private Vector3Int currentGridPosition;
 
     void Start()
     {
-        targetPosition = transform.position;
-        
-        // If no separate checkpoint is assigned, use the player's own position
-        if (obstacleCheckPoint == null)
-        {
-            obstacleCheckPoint = this.transform;
-        }
+        // Snap the player to the nearest tile center at the start
+        currentGridPosition = grid.WorldToCell(transform.position);
+        transform.position = grid.GetCellCenterWorld(currentGridPosition);
     }
 
     void Update()
     {
-        // 1. Handle the sliding movement if already in motion
-        if (isMoving)
+        Vector3Int direction = Vector3Int.zero;
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))    direction = Vector3Int.up;
+        if (Input.GetKeyDown(KeyCode.DownArrow))  direction = Vector3Int.down;
+        if (Input.GetKeyDown(KeyCode.LeftArrow))  direction = Vector3Int.left;
+        if (Input.GetKeyDown(KeyCode.RightArrow)) direction = Vector3Int.right;
+
+        if (direction != Vector3Int.zero)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-
-            if (Vector3.Distance(transform.position, targetPosition) < 0.001f)
-            {
-                transform.position = targetPosition;
-                isMoving = false;
-            }
-            return;
-        }
-
-        // 2. Read arrow key inputs (one press per movement)
-        float inputX = 0f;
-        float inputY = 0f;
-
-        if (Input.GetKeyDown(KeyCode.UpArrow)) inputY = 1f;
-        else if (Input.GetKeyDown(KeyCode.DownArrow)) inputY = -1f;
-        else if (Input.GetKeyDown(KeyCode.LeftArrow)) inputX = -1f;
-        else if (Input.GetKeyDown(KeyCode.RightArrow)) inputX = 1f;
-
-        // 3. Calculate next tile position and check for collisions
-        if (inputX != 0f || inputY != 0f)
-        {
-            Vector3 direction = new Vector3(inputX * gridSize, inputY * gridSize, 0f);
-            Vector3 potentialTarget = transform.position + direction;
-
-            if (CanMove(potentialTarget))
-            {
-                targetPosition = potentialTarget;
-                isMoving = true;
-            }
+            AttemptMove(direction);
         }
     }
 
-    // Helper method to check if the next tile is blocked
-    bool CanMove(Vector3 targetPos)
+    private void AttemptMove(Vector3Int direction)
     {
-        // Checks a tiny circle (0.2 units radius) at the destination tile
-        // Returns true if NO colliders on the obstacleLayer are found
-        return !Physics2D.OverlapCircle(targetPos, 0.2f, obstacleLayer);
+        Vector3Int targetGridPosition = currentGridPosition + direction;
+
+        // Loop through every tilemap in our list
+        foreach (Tilemap wallTilemap in obstacleTilemaps)
+        {
+            // If this tilemap isn't empty, check if it has a tile at the target position
+            if (wallTilemap != null && wallTilemap.HasTile(targetGridPosition))
+            {
+                Debug.Log($"Movement blocked by a wall on {wallTilemap.name}!");
+                return; // A wall was found, stop the movement completely
+            }
+        }
+
+        // If none of the tilemaps had a wall, move the player
+        currentGridPosition = targetGridPosition;
+        transform.position = grid.GetCellCenterWorld(currentGridPosition);
     }
 }
