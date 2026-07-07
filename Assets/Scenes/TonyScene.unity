@@ -1452,6 +1452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dba9334302b1a64dad00d89c998b916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TileDestroyer
+  targetTilemap: {fileID: 615429552}
 --- !u!1 &897065250
 GameObject:
   m_ObjectHideFlags: 0
