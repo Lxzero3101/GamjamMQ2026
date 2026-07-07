@@ -1,53 +1,29 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
-public class GridMovement : MonoBehaviour
+public class GridPlayer : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private Tilemap[] obstacleTilemaps; // Changed to an Array for multiple tilemaps
-    [SerializeField] private Grid grid;                 
-
-    private Vector3Int currentGridPosition;
-
-    void Start()
-    {
-        // Snap the player to the nearest tile center at the start
-        currentGridPosition = grid.WorldToCell(transform.position);
-        transform.position = grid.GetCellCenterWorld(currentGridPosition);
-    }
+    [Header("Grid Settings")]
+    public float tileSize = 1f;   // World units per tile
 
     void Update()
     {
-        Vector3Int direction = Vector3Int.zero;
+        if (TurnManager.Instance.IsGameOver) return;
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))    direction = Vector3Int.up;
-        if (Input.GetKeyDown(KeyCode.DownArrow))  direction = Vector3Int.down;
-        if (Input.GetKeyDown(KeyCode.LeftArrow))  direction = Vector3Int.left;
-        if (Input.GetKeyDown(KeyCode.RightArrow)) direction = Vector3Int.right;
+        Vector3 move = Vector3.zero;
 
-        if (direction != Vector3Int.zero)
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+            move = Vector3.forward;
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+            move = Vector3.back;
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            move = Vector3.left;
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+            move = Vector3.right;
+
+        if (move != Vector3.zero)
         {
-            AttemptMove(direction);
+            transform.position += move * tileSize;
+            TurnManager.Instance.UseTurn();
         }
-    }
-
-    private void AttemptMove(Vector3Int direction)
-    {
-        Vector3Int targetGridPosition = currentGridPosition + direction;
-
-        // Loop through every tilemap in our list
-        foreach (Tilemap wallTilemap in obstacleTilemaps)
-        {
-            // If this tilemap isn't empty, check if it has a tile at the target position
-            if (wallTilemap != null && wallTilemap.HasTile(targetGridPosition))
-            {
-                Debug.Log($"Movement blocked by a wall on {wallTilemap.name}!");
-                return; // A wall was found, stop the movement completely
-            }
-        }
-
-        // If none of the tilemaps had a wall, move the player
-        currentGridPosition = targetGridPosition;
-        transform.position = grid.GetCellCenterWorld(currentGridPosition);
     }
 }
