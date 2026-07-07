@@ -806,7 +806,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1600, y: 200}
+  m_SizeDelta: {x: 1600, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1648123373
 MonoBehaviour:
@@ -1099,7 +1099,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   textComponent: {fileID: 1648123373}
   lines:
-  - Hello
+  - In this part of the world, the gods were old stories.
+  - "The people who lived in the shadow of the great temples knew all the myths \u2014
+    Ra who sailed his golden barque across the sky, Anubis who weighed the hearts
+    of the dead, the old powers who had shaped the land long before anyone alive
+    could remember."
+  - 'Children grew up hearing these tales with wonder, and then with the comfortable
+    distance of growing up. The temples were tourist sites now. '
+  - The hieroglyphs were studied in universities. The gods were history.
+  - Nobody truly expected them to be anything more.
+  - Nesia's eyes opened to a sky the colour of hammered bronze.
+  - "She came awake all at once \u2014 gasping, heart slamming, fingers clawing at
+    the cracked earth beneath her as though she had been dropped from somewhere very
+    far above. "
+  - The air smelled of hot stone and something older, something electric, like the
+    moment after lightning strikes.
+  - "And then \u2014 before she could think, before she could even ask where she
+    was \u2014 it came."
+  - 'Not a voice, exactly. More like a pressure behind her eyes. A warmth in the
+    centre of her chest. '
+  - 'And with it, muffled and distant, like a word spoken on the other side of a
+    heavy door:'
+  - '"...Rise."'
+  - Then it was gone.
+  - "Nesia sat in the dust, chest heaving. The word \u2014 if it had been a word
+    \u2014 was already dissolving. She wasn't even certain she had heard anything
+    at all. Perhaps her own mind had invented it, some last desperate signal firing
+    in the moment between death and not-death."
+  - Because she had been dead. She knew that the way you know things in your bones.
+  - 'She looked down at her right hand. She was holding a pen. It was not an ordinary
+    pen. Longer than it should have been, warm to the touch in the way that living
+    things are warm. At its tip, a bead of deep gold ink trembled and caught the
+    light. '
+  - The pen hummed faintly against her palm. It did not feel like something she had
+    found. It felt like something she had always carried.
+  - (Where did this come from? Why does it feel like mine? It feels like it has always
+    been mine.)
+  - "Her past sat in her mind like a broken mosaic. Her name surfaced first: Nesia.
+    Then fragments. A room full of books. The smell of ink. A deep and persistent
+    hunger for knowing things \u2014 for reading and drawing and understanding how
+    the world fitted together. And then \u2014 nothing."
+  - "In the distance, half-swallowed by haze and time, a structure loomed \u2014
+    massive, carved from sandstone the colour of dried blood. A temple. Even from
+    here she could see the jackal-headed figures flanking its entrance."
+  - The Anubis Temple.
+  - (I know this place. Not from visiting it. From something else. From before.)
+  - "The pen pulsed once in her hand \u2014 warm, steady, insistent \u2014 like a
+    compass needle swinging to north."
+  - Nesia looked at it. Looked at the temple. And walked.
   textSpeed: 0.05
 --- !u!114 &1965924016
 MonoBehaviour:
