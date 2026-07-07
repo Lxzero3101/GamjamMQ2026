@@ -25,7 +25,12 @@ public class SceneTransitionTile : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(nextSceneName))
         {
+            Debug.Log($"Player stepped on the trigger tile. Loading scene: {nextSceneName}");
             SceneManager.LoadScene(nextSceneName);
+        }
+        else
+        {
+            Debug.LogWarning("Next Scene Name is empty! Please assign a scene name in the Inspector.");
         }
     }
 }
