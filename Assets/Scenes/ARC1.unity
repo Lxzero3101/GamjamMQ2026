@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   dialogueBox: {fileID: 1965924013}
-  textComponent: {fileID: 1672093819}
+  textComponent: {fileID: 1648123373}
   lines:
   - In this part of the world, the gods were old stories.
   - "The people who lived in the shadow of the great temples knew all the myths \u2014
@@ -380,7 +380,7 @@ Transform:
   m_GameObject: {fileID: 321933906}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.15, y: -0.81, z: 0}
+  m_LocalPosition: {x: -0.6, y: -0.91, z: 0}
   m_LocalScale: {x: 10.054886, y: 10.132158, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -946,7 +946,7 @@ Transform:
   m_GameObject: {fileID: 1095423063}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.77, y: -1.12, z: 0}
+  m_LocalPosition: {x: 4.29, y: -0.73, z: 0}
   m_LocalScale: {x: 10.054886, y: 10.132158, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
