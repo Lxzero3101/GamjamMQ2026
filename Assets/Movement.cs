@@ -1,49 +1,49 @@
-using System.Collections;
 using UnityEngine;
 
 public class GridMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float tileSize = 1f;
+    public float gridSize = 1f; // Size of your grid in Unity units
+    public float moveSpeed = 5f; // Speed of the transition
 
-    private bool isMoving = false;
     private Vector3 targetPosition;
+    private bool isMoving = false;
 
-    void Update()
+    void Start()
     {
-        // Only accept new input
-        if (!isMoving)
-        {
-            float horizontal = Input.GetAxisRaw("Horizontal");
-            float vertical = Input.GetAxisRaw("Vertical");
-
-            // Prevent extra movement
-            if (horizontal != 0)
-            {
-                vertical = 0;
-            }
-
-            // Calculate the next tile destination if key is pressed
-            if (horizontal != 0 || vertical != 0)
-            {
-                targetPosition = transform.position + new Vector3(horizontal, vertical, 0) * tileSize;
-                StartCoroutine(MoveToGrid(targetPosition));
-            }
-        }
+        targetPosition = transform.position;
     }
 
-    private IEnumerator MoveToGrid(Vector3 target)
+    void UpdateMove()
     {
-        isMoving = true;
-
-        // Smooth movement
-        while (Vector3.Distance(transform.position, target) > 0.01f)
+        // If the character is already moving, smoothly interpolate to the target position
+        if (isMoving)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
-            yield return null; // Wait for the next frame
+            transform.position = Vector3.Lerp(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+            // Stop moving once we get close enough to the target
+            if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
+            {
+                transform.position = targetPosition;
+                isMoving = false;
+            }
+            return;
         }
 
-        transform.position = target;
-        isMoving = false;
+        // GetDown ensures only one grid space is traversed per key press
+        float inputX = 0f;
+        float inputY = 0f;
+
+        if (Input.GetKeyDown(KeyCode.UpArrow)) inputY = 1f;
+        else if (Input.GetKeyDown(KeyCode.DownArrow)) inputY = -1f;
+        else if (Input.GetKeyDown(KeyCode.LeftArrow)) inputX = -1f;
+        else if (Input.GetKeyDown(KeyCode.RightArrow)) inputX = 1f;
+
+        // If an arrow key was pressed, calculate the new target position
+        if (inputX != 0f || inputY != 0f)
+        {
+            Vector3 movement = new Vector3(inputX * gridSize, inputY * gridSize, 0f);
+            targetPosition = transform.position + movement;
+            isMoving = true;
+        }
     }
 }
