@@ -191,6 +191,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: GamJamTileMaps_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f055bc4894a757a4fbf064bc0a1e482d
+      internalID: -1458389703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -210,6 +232,7 @@ TextureImporter:
       GamJamTileMaps_0: 3375680224464564428
       GamJamTileMaps_1: 1237834503
       GamJamTileMaps_2: 1744127949
+      GamJamTileMaps_3: -1458389703
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
