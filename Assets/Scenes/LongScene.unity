@@ -851,7 +851,7 @@ MonoBehaviour:
   _miniGameSceneName: SpellDrawingMiniGame
   _successfulCastsRequired: 1
   _maxFailedAttempts: 0
-  _resultDisplayDuration: 2
+  _resultDisplayDuration: 1.5
 --- !u!4 &2033597869
 Transform:
   m_ObjectHideFlags: 0
