@@ -16,8 +16,8 @@ public class BattleSystem : MonoBehaviour
 	public Transform playerBattleStation;
 	public Transform enemyBattleStation;
 
-	Unit playerUnit;
-	Unit enemyUnit;
+	public Unit playerUnit;
+	public Unit enemyUnit;
 
 	public TMP_Text dialogueText;
 	public BattleHUD playerHUD;
@@ -49,45 +49,26 @@ public class BattleSystem : MonoBehaviour
 
 		state = BattleState.PLAYERTURN;
 		PlayerTurn();
+		FkingTired1.ResetCount();
+		FkingTired2.ResetCount();
 	}
 
 	IEnumerator PlayerAttack()
 {
     dialogueText.text = "You swing your sword!";
 
-    // 1. Spawn the sword prefab at the enemy's battle station (or player's, depending on your setup)
     if (_swordSlashPrefab != null)
     {
         GameObject slashGO = Instantiate(_swordSlashPrefab, enemyBattleStation.position, Quaternion.identity);
         SwordSlashEffect slashEffect = slashGO.GetComponent<SwordSlashEffect>();
-        
+
         if (slashEffect != null)
         {
-            // Pass the player's damage dynamically to the sword's hitbox logic
             slashEffect.Initialize(playerUnit.damage);
         }
     }
 
-    // 2. Wait for the slash duration and physics matrix calculation to settle
-    yield return new WaitForSeconds(0.5f);
-
-    // 3. Update HUD values post-collision
-    enemyHUD.SetHP(enemyUnit.currentHP);
-    dialogueText.text = "The attack is successful!";
-
-    yield return new WaitForSeconds(1.5f);
-
-    // 4. Perform the structural round-state check
-    if (enemyUnit.currentHP <= 0)
-    {
-        state = BattleState.WON;
-        EndBattle();
-    } 
-    else
-    {
-        state = BattleState.ENEMYTURN;
-        StartCoroutine(EnemyTurn());
-    }
+    yield break; // stop here, OnSwordHit() takes over from collision
 }
 
 	IEnumerator EnemyTurn()
@@ -127,7 +108,7 @@ public class BattleSystem : MonoBehaviour
 
 	void PlayerTurn()
 	{
-		dialogueText.text = "Choose an action:";
+		dialogueText.text = "Choose an action: Press F to choose skill to attack";
 	}
 
 	IEnumerator PlayerHeal()
@@ -158,5 +139,27 @@ public class BattleSystem : MonoBehaviour
 
 		StartCoroutine(PlayerHeal());
 	}
+	public void OnSwordHit(int damage)
+{
+    enemyUnit.TakeDamage(damage);
+    enemyHUD.SetHP(enemyUnit.currentHP);
+    StartCoroutine(AfterSwordHit());
+}
+
+private IEnumerator AfterSwordHit()
+{
+    yield return new WaitForSeconds(1.5f);
+
+    if (enemyUnit.currentHP <= 0)
+    {
+        state = BattleState.WON;
+        EndBattle();
+    }
+    else
+    {
+        state = BattleState.ENEMYTURN;
+        StartCoroutine(EnemyTurn());
+    }
+}
 
 }

@@ -8,16 +8,17 @@ public class SwordSlashEffect : MonoBehaviour
     [SerializeField] private float _slashDuration = 0.15f;
 
     [Header("Collision & Damage Settings")]
-    [SerializeField] private string _targetTag = "Enemy"; // Set this to "Enemy" or "Player" depending on who is swinging
+    [SerializeField] private string _targetTag = "Enemy";
 
     private Quaternion _startRotation;
     private Quaternion _endRotation;
     private float _elapsedTime = 0f;
-    
+
     private int _damage = 0;
     private bool _hasHit = false;
 
-    // Public initialization method to safely inject damage from the BattleSystem
+    private BattleSystem _battleSystem;
+
     public void Initialize(int damageAmount)
     {
         _damage = damageAmount;
@@ -25,21 +26,22 @@ public class SwordSlashEffect : MonoBehaviour
 
     private void Start()
     {
+        _battleSystem = FindFirstObjectByType<BattleSystem>();
+
         _startRotation = transform.rotation;
         _endRotation = _startRotation * Quaternion.Euler(0, 0, -_slashAngle);
-        
+
         if (_slashDuration <= 0f)
-        {
             _slashDuration = 0.01f;
-        }
+
         CheckOverlap();
     }
-        private void CheckOverlap()
+
+    private void CheckOverlap()
     {
         Collider2D col = GetComponent<Collider2D>();
         if (col == null) return;
 
-        // Get all colliders already overlapping this trigger
         ContactFilter2D filter = new ContactFilter2D();
         filter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
         filter.useTriggers = false;
@@ -55,7 +57,7 @@ public class SwordSlashEffect : MonoBehaviour
                 if (targetUnit != null)
                 {
                     _hasHit = true;
-                    targetUnit.TakeDamage(_damage);
+                    _battleSystem?.OnSwordHit(_damage); // notify BattleSystem instead
                 }
             }
         }
@@ -66,27 +68,25 @@ public class SwordSlashEffect : MonoBehaviour
         if (_elapsedTime < _slashDuration)
         {
             _elapsedTime += Time.deltaTime;
-            
             float progress = _elapsedTime / _slashDuration;
             transform.rotation = Quaternion.Slerp(_startRotation, _endRotation, progress);
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 1.5f);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Prevent hitting multiple times in one swing, or hitting the wrong target
-        if (_hasHit || !collision.CompareTag(_targetTag)) 
+        if (_hasHit || !collision.CompareTag(_targetTag))
             return;
 
         Unit targetUnit = collision.GetComponent<Unit>();
         if (targetUnit != null)
         {
             _hasHit = true;
-            targetUnit.TakeDamage(_damage);
+            _battleSystem?.OnSwordHit(_damage); // notify BattleSystem instead
         }
     }
 }

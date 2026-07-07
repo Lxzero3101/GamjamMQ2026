@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 996982043558802967}
   - component: {fileID: 5009751193290358853}
+  - component: {fileID: 7319028579697848238}
   m_Layer: 0
   m_Name: Hourglass_0
   m_TagString: Untagged
@@ -91,3 +92,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &7319028579697848238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5587907969458255162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20b8e2d747659e42a4d76cf2d853927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FkingTired2
+  _nextSceneName: ARC4.5
+  battleSystem: {fileID: 0}
