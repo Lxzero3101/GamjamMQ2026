@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using TMPro;
@@ -17,10 +16,9 @@ public class DialogueTrigger : MonoBehaviour
     private int index;
     private bool isRunning = false;
     private bool hasTriggered = false;
-    private PlayerMovement playerMovement;
+    private Rigidbody2D playerRb;  // 2D — swap to Rigidbody if 3D
 
-    // ── Trigger Detection ──────────────────────────────────────────
-    void OnTriggerEnter2D(Collider2D other) // swap to OnTriggerEnter(Collider other) if 3D
+    void OnTriggerEnter2D(Collider2D other)  // swap to OnTriggerEnter(Collider other) if 3D
     {
         if (!other.CompareTag(playerTag)) return;
         if (triggerOnce && hasTriggered) return;
@@ -28,17 +26,14 @@ public class DialogueTrigger : MonoBehaviour
 
         hasTriggered = true;
 
-        // Grab PlayerMovement from the player that touched this trigger
-        playerMovement = other.GetComponent<PlayerMovement>();
-        if (playerMovement != null)
-        {
-            playerMovement.enabled = false; // freeze player entirely
-        }
+        // Freeze player using Rigidbody2D — no custom script needed
+        playerRb = other.GetComponent<Rigidbody2D>();
+        if (playerRb != null)
+            playerRb.bodyType = RigidbodyType2D.Static;
 
         StartDialogue();
     }
 
-    // ── Dialogue Logic ─────────────────────────────────────────────
     void StartDialogue()
     {
         isRunning = true;
@@ -94,10 +89,9 @@ public class DialogueTrigger : MonoBehaviour
         textComponent.gameObject.SetActive(false);
 
         // Unfreeze player
-        if (playerMovement != null)
-            playerMovement.enabled = true;
+        if (playerRb != null)
+            playerRb.bodyType = RigidbodyType2D.Dynamic;
     }
 
-    // Call this from anywhere if you want to allow re-triggering
     public void ResetTrigger() => hasTriggered = false;
 }
