@@ -388,7 +388,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   textComponent: {fileID: 634062145}
   lines:
-  - '[ The Arena ]'
+  - 'The jar dissolved. Into dust. Into nothing. '
+  - "Together with it, the ink in the pen's reservoir began to fade \u2014 slowly,
+    gently, the warmth ebbing from the nib as though something that had been burning
+    very bright was finally being allowed to rest. It's journey has finnally reached
+    an end."
+  - Nesia held the pen up and watched the last glow of it.
+  - "(Not yet. Please \u2014 not yet. I need you to get me out first.)"
+  - "One last warmth. One last pulse. A straight corridor opened to the outside \u2014
+    wide and clear, lit by sourceless torches. "
+  - She began to run.
   textSpeed: 0.05
 --- !u!114 &688950668
 MonoBehaviour:
