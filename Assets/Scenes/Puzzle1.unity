@@ -1146,8 +1146,8 @@ Transform:
   m_GameObject: {fileID: 134307741}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.55, y: 3.43, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.52, y: 3.53, z: 0}
+  m_LocalScale: {x: 1.0212, y: 1.0212, z: 1.0212}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2322,7 +2322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897ed50ad1a0da8459d3362c2f37151f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneTransitionTile
-  nextSceneName: TonyScene
+  nextSceneName: ARC3
   playerTag: Player
 --- !u!483693784 &1318558578
 TilemapRenderer:
