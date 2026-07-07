@@ -10,7 +10,7 @@ public class GridMovement : MonoBehaviour {
     [SerializeField] private float gridSize = 1f;
     private bool isMoving = false;
 
-    private void Update() {
+    private void UpdateMove() {
         // Allow movement to be one move per time
         if (!isMoving) {
             System.Func<KeyCode, bool> inputMovement;
