@@ -420,15 +420,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpellRadialMenu
   _spellOptions:
-  - _spellName: Sword
-    _icon: {fileID: 3303519159223842701, guid: d832ab0929a3be24ea38f971cbc95ee9, type: 3}
-    _prefab: {fileID: 8882828774848743228, guid: 15dbaa0daf6372849844cc49a40e2a4a, type: 3}
   - _spellName: Hand
     _icon: {fileID: -1847235307746803907, guid: abc6e59ce832e714d80af3a47d204d3e, type: 3}
     _prefab: {fileID: 0}
-  - _spellName: MagicPencil
-    _icon: {fileID: 1717265745677101690, guid: edece5d019373f1408a69ca5fc9b608e, type: 3}
-    _prefab: {fileID: 3068455845367517960, guid: 443466044d768f5449c092dcac26c407, type: 3}
   _activationKey: 20
   _radius: 150
   _iconSize: 72
