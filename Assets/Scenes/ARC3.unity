@@ -446,6 +446,7 @@ GameObject:
   - component: {fileID: 653231341}
   - component: {fileID: 653231340}
   - component: {fileID: 653231339}
+  - component: {fileID: 653231342}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
@@ -549,6 +550,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653231337}
   m_CullTransparentMesh: 1
+--- !u!114 &653231342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653231337}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df752a9df5172c418f62c1088ec6350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue
+  textComponent: {fileID: 858520204}
+  lines:
+  - 
+  textSpeed: 0
 --- !u!1 &858520202
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,7 +956,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -975,8 +992,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1c59ace054e0f4cb9e17e1e77a9b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
-  dialogueBox: {fileID: 0}
-  textComponent: {fileID: 0}
+  dialogueBox: {fileID: 653231337}
+  textComponent: {fileID: 858520204}
   lines:
   - '[ The Arena ]'
   - "The corridor delivered her into open sky. The arena was enormous \u2014 a great
@@ -1468,7 +1485,7 @@ GameObject:
   - component: {fileID: 2005998524}
   m_Layer: 6
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
